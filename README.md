@@ -31,3 +31,33 @@ Node.js fetches articles from Laravel API, searches Google/DuckDuckGo for top-ra
 cd backend-laravel
 php artisan migrate
 php artisan serve
+## 📐 Architecture Diagram
++-------------------+
+|   Laravel API     |
+|-------------------|
+| - Articles CRUD   |
+| - Database Access |
++---------+---------+
+          ^
+          | REST API (JSON)
+          |
++---------+---------+
+|   Node.js Scraper |
+|-------------------|
+| - Fetch Articles  |
+| - Google Search   |
+| - Scrape Content  |
+| - Rewrite Article |
++---------+---------+
+          |
+          | HTTP Requests
+          v
++---------------------------+
+|   Competitor Websites     |
+|---------------------------|
+| - Top Ranking Articles    |
+| - Public Blog Content     |
++---------------------------+
+
+
+
